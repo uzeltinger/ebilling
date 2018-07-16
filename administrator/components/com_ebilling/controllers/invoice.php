@@ -19,31 +19,28 @@ class EbillingControllerInvoice extends JControllerForm
         }        
                 
         $model = $this->getModel();
-        $invoice = $model->getInvoice($invoiceId);
+        //$invoice = $model->getInvoice($invoiceId);
+        if($model->obtenerCae($invoiceId)){                
+            $this->setMessage('CAE guardado');                     
+        }else{
+            $this->setError('ERROR : CAE NO guardado');
+            $this->setMessage('ERROR : CAE NO guardado');
+        }
+        if (count( $cids )) {
+            $this->setRedirect(JRoute::_('index.php?option=com_ebilling&view=invoices', false));
+        }else{
+            $this->setRedirect(JRoute::_('index.php?option=com_ebilling&view=invoice&layout=edit&id='.$invoiceId, false));    
+        }   
         //echo '<pre>';print_r($invoice);die();
-
+        /*
         include JPATH_COMPONENT . '/afip/src/Afip.php';
         $afip = new Afip(array('CUIT' => 20220531695));
         $sales_point = $invoice->PtoVta;// 	Sales point to ask for last voucher  
         $type = $invoice->CbteTipo;// 		Voucher type to ask for last voucher
         $lastVoucher = $afip->ElectronicBilling->GetLastVoucher($sales_point, $type);
-        //echo '<pre>';print_r($lastVoucher);die();
-        //$invoice->aDocNum = (float)$invoice->aDocNum;
-        //if($invoice->aDocNum === 30714343919){echo 'igual';die();}
         $ImpTotal = $invoice->total;
         $ImpIVA = $invoice->total-$invoice->subtotal;
         $ImpNeto = $invoice->subtotal;
-        //$ImpTotal = 100;
-        //$ImpIVA = 21;
-
-        /*$ImpTotal = 3763.10;
-        $ImpIVA = 653.10;
-        $ImpNeto = 3110.00;*/
-
-        /*echo '<br>ImpTotal .'.$ImpTotal;
-        echo '<br>ImpIVA .'.$ImpIVA;
-        echo '<br>ImpNeto .'.$ImpNeto;*/
-        //die();
         $data = array(
             'CantReg' 		=> 1, // Cantidad de comprobantes a registrar
             'PtoVta' 		=> $invoice->PtoVta, // Punto de venta
@@ -65,7 +62,7 @@ class EbillingControllerInvoice extends JControllerForm
             'FchVtoPago' 	=> str_replace('-','',$invoice->FchVtoPago), // (Opcional) Fecha de vencimiento del servicio (yyyymmdd), obligatorio para Concepto 2 y 3
             'MonId' 		=> 'PES', //Tipo de moneda usada en el comprobante (ver tipos disponibles)('PES' para pesos argentinos) 
             'MonCotiz' 		=> 1, // Cotización de la moneda usada (1 para pesos argentinos)  
-            /*'CbtesAsoc' 	=> array( // (Opcional) Comprobantes asociados
+            'CbtesAsoc' 	=> array( // (Opcional) Comprobantes asociados
                 array(
                     'Tipo' 		=> 6, // Tipo de comprobante (ver tipos disponibles) 
                     'PtoVta' 	=> 1, // Punto de venta
@@ -81,7 +78,7 @@ class EbillingControllerInvoice extends JControllerForm
                     'Alic' 		=> 5.2, // Alícuota
                     'Importe' 	=> 7.8 // Importe del tributo
                 )
-            ), */
+            ), 
             'Iva' 			=> array( // (Opcional) Alícuotas asociadas al comprobante
                 array(
                     'Id' 		=> 5, // Id del tipo de IVA (ver tipos disponibles) 
@@ -89,27 +86,27 @@ class EbillingControllerInvoice extends JControllerForm
                     'Importe' 	=> $ImpIVA // Importe 
                 )
             ), 
-            /*
+            
             'Opcionales' 	=> array( // (Opcional) Campos auxiliares
                 array(
                     'Id' 		=> 17, // Codigo de tipo de opcion (ver tipos disponibles) 
                     'Valor' 	=> 2 // Valor 
                 )
-            ), */
-            /*
+            ), 
+            
             'Compradores' 	=> array( // (Opcional) Detalles de los clientes del comprobante 
                 array(
                     'DocTipo' 		=> 80, // Tipo de documento (ver tipos disponibles) 
                     'DocNro' 		=> 30714343919, // Numero de documento
                     'Porcentaje' 	=> 100 // Porcentaje de titularidad del comprador
                 )
-            )*/
+            )
         );
-        
+        */
         //echo '<pre>';print_r($data);die();
 
-        $voucher = $afip->ElectronicBilling->CreateVoucher($data);
-        
+        //$voucher = $afip->ElectronicBilling->CreateVoucher($data);
+ /*       
         if($voucher['CAE']){
             $newData['id']=$invoiceId;
             $newData['CAE']=$voucher['CAE'];
@@ -131,7 +128,7 @@ class EbillingControllerInvoice extends JControllerForm
         
 
         //Array ( [CAE] => 68275658834648 [CAEFchVto] => 2018-07-13 )
-/*
+
         echo '<pre>';
         print_r($input);
 

@@ -72,7 +72,7 @@ $assoc		= JLanguageAssociations::isEnabled();
 							<?php echo JHtml::_('searchtools.sort', 'Importe', 'a.valor', $listDirn, $listOrder); ?>
 						</th>
                         <th width="5%" style="min-width:55px" class="nowrap center">
-							<?php echo JHtml::_('searchtools.sort', 'Publicado', 'a.published', $listDirn, $listOrder); ?>
+							<?php echo JHtml::_('searchtools.sort', 'Pago total', 'a.published', $listDirn, $listOrder); ?>
 						</th>
                         <th width="5%" class="nowrap hidden-phone">
 							<?php echo JHtml::_('searchtools.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
