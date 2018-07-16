@@ -169,5 +169,9 @@ class EbillingControllerInvoice extends JControllerForm
         $msg = JText::_( 'Factura Enviada' );        
 		$this->setRedirect( 'index.php?option=com_ebilling&view=invoices', $msg );
     }    
+
+    public function getPdfUrl(){
+        echo 'https://ebilling.local/pdfs/27220531695/0002-00000037.pdf';die();
+    }
     
 }

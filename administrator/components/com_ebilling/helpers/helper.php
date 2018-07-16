@@ -19,7 +19,11 @@ class EbillingHelper
     JSubMenuHelper::addEntry(
         JText::_('Facturas'),
         'index.php?option=com_ebilling&view=invoices',
-        $vName == 'invoices');	
+		$vName == 'invoices');	
+	JSubMenuHelper::addEntry(
+        JText::_('Pagos'),
+        'index.php?option=com_ebilling&view=payments',
+        $vName == 'payments');
     JSubMenuHelper::addEntry(
         JText::_('Perfiles'),
         'index.php?option=com_ebilling&view=profiles',

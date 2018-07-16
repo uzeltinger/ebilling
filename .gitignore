@@ -6,6 +6,7 @@
 !/administrator/components
 /administrator/components/*
 !/administrator/components/com_ebilling
+
 !/administrator/languajes
 /administrator/languajes/*
 !/administrator/languajes/es-ES
