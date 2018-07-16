@@ -8,7 +8,7 @@
 	<authorUrl>http://www.yexey.com</authorUrl>
 	<copyright>Copyright Info</copyright>
 	<license>GNU General Public License version 2 or later; see	LICENSE.txt</license>	
-	<version>1.5.0</version>
+	<version>1.7.0</version>
 	<description>Component for Real Estate</description>
 	<scriptfile>com_ebilling.script.php</scriptfile>
 	<updateservers>    

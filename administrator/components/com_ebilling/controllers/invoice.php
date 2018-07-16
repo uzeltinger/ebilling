@@ -159,7 +159,7 @@ class EbillingControllerInvoice extends JControllerForm
 	{
         $cids = $this->input->getVar( 'cid', array(0), 'default', 'array' );
         //print_r($cids);die();
-        $model = $this->getModel('invoice');        
+        $model = $this->getModel('invoice');
 		if (count( $cids )) {
 			foreach($cids as $cid) {
                 $model->savePdf($cid);
@@ -171,7 +171,12 @@ class EbillingControllerInvoice extends JControllerForm
     }    
 
     public function getPdfUrl(){
-        echo 'https://ebilling.local/pdfs/27220531695/0002-00000037.pdf';die();
+        $invoiceId = $this->input->getVar( 'id' );
+        $model = $this->getModel('invoice');
+        $invoice = $model->getInvoice($invoiceId);
+        $FacturaNumero = EbillingHelper::getFacturaNumero($invoice->CbteNro,$invoice->PtoVta);
+        $pdfLink = JUri::root(). 'pdfs/' . $invoice->aDocNum . '/' . $FacturaNumero . '.pdf';	    
+        echo  $pdfLink;die();
     }
     
 }
