@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field name="id" type="text" label="JGLOBAL_FIELD_ID_LABEL" description="JGLOBAL_FIELD_ID_DESC" size="10" default="0" readonly="true" class="readonly" />
+					
+		<field name="name" type="text" label="Nombre" description="Nombre" class="inputbox" size="30" required="true" />
+
+		<field name="alias" type="text" label="JFIELD_ALIAS_LABEL" description="JFIELD_ALIAS_DESC" class="inputbox" size="30" />			
+				
+		<field name="published" type="radio" label="JPUBLISHED" description="JFIELD_PUBLISHED_DESC" class="inputbox" filter="intval" size="1" default="1" >
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>			
+		</field>	
+
+		<field name="checked_out" type="hidden" filter="unset" />
+
+		<field name="checked_out_time" type="hidden" filter="unset" />
+		
+		<field name="RazonSocial" type="text" label="Razon Social" description="Razon Social" class="inputbox" size="30" />
+				
+		<field name="Direccion" type="text" label="Direccion" description="Direccion" class="inputbox" size="30" />
+		
+		<field name="CodPostal" type="text" label="CP" description="CP" class="inputbox" size="30" />
+		
+		<field name="Ciudad" type="text" label="Localidad" description="" class="inputbox" size="30" />
+		
+		<field name="Provincia" type="text" label="Provincia" description="" class="inputbox" size="30" />
+		
+		<field name="Pais" type="text" label="País" description="" class="inputbox" size="30" />
+		
+		<field name="email" type="text" label="Email" description="" class="inputbox" size="30" />
+		
+		<field name="phone" type="text" label="Tel" description="" class="inputbox" size="30" />
+		
+		<field name="whatsapp" type="text" label="Whatsapp" description="" class="inputbox" size="30" />
+		
+		<field name="mobile" type="text" label="Celu" description="" class="inputbox" size="30" />
+						
+		<field
+			name="created"
+			type="calendar"
+			label="Creado"
+			description="Creado"
+			size="22"
+			translateformat="true"
+			showtime="true"
+			filter="user_utc"
+		/>
+		<field name="texto" type="editor" class="inputbox" label="texto" description="texto" filter="safehtml" buttons="true" />		
+		
+		<field name="CondVta" type="list" label="Condición de Venta"
+			description="Condición frente al IVA" class="inputbox"
+			size="1" default="1"
+		>                   
+                <option value="1">c/c</option>                    
+                <option value="2">Contado</option>            
+		</field>
+
+		<field name="CondIva" type="list" label="Condición frente al IVA"
+			description="Condición frente al IVA" class="inputbox"
+			size="1" default="1"
+		>                   
+                    <option value="1">IVA Responsable Inscripto</option>                    
+                    <option value="4">IVA Sujeto Exento</option>                    
+                    <option value="5">Consumidor Final</option>                    
+                    <option value="6">Responsable Monotributo</option>                    
+                    <option value="8">Proveedor del Exterior</option>                    
+                    <option value="9">Cliente del Exterior</option>                    
+                    <option value="10">IVA Liberado - Ley Nº 19.640</option>                    
+                    <option value="11">IVA Responsable Inscripto - Agente de Percepción</option>                    
+                    <option value="13">Monotributista Social</option>                    
+                    <option value="15">IVA No Alcanzado</option>         
+		</field>
+		
+		<field name="DocTipo" type="list" label="Tipo de Documento"
+			description="Tipo de Documento" class="inputbox"
+			filter="intval" size="1" default="80"
+		>                   
+                    <option value="80">CUIT</option>
+                    <option value="87">CDI</option>
+                    <option value="89">LE</option>
+                    <option value="90">LC</option>
+                    <option value="91">CI Extranjera</option>
+                    <option value="96">DNI</option>
+                    <option value="94">Pasaporte</option>
+                    <option value="00">CI Policía Federal</option>
+                    <option value="30">Certificado de Migración</option>        
+		</field>
+		
+		<field name="DocNro" type="text" label="Nro. de Documento CUIT DNI CUIL" description="" class="inputbox" size="30" />
+		
+	</fieldset>
+			
+</form>

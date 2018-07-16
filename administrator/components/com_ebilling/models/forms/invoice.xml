@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field name="id" 
+			type="text"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC" 
+			size="10" 
+			default="0"
+			readonly="true"
+			class="readonly"
+		/>
+
+		<field name="profile_id" type="modalprofile" label="Cliente" description="" size="30" default="62" />		
+		
+		<field name="CbteNro" 
+			type="text"
+			label="Numero Factura" 
+			description="Numero"
+			class="inputbox" 
+			size="30" 
+			required="true"
+		 />				
+		<field name="published" type="radio" label="JPUBLISHED"
+			description="JFIELD_PUBLISHED_DESC" class="inputbox"
+			filter="intval" size="1" default="1"
+		>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>			
+		</field>	
+
+		<field name="checked_out" 
+			type="hidden" 
+			filter="unset" 
+		/>
+		<field name="checked_out_time" 
+			type="hidden" 
+			filter="unset"
+		 />
+		<field name="ordering" 
+			type="ordering" 
+			class="inputbox"
+			label="JFIELD_ORDERING_LABEL" 
+			description="JFIELD_ORDERING_DESC" 
+		/>
+		<field name="PtoVta" type="list" label="punto De Venta"
+			description="puntoDeVenta" class="inputbox"
+			size="1" default="2"
+		>
+			<option value="1">0001</option>
+			<option value="2">0002</option>
+			<option value="3">0003</option>	
+		</field>
+		<field name="CbteTipo" type="list" label="Tipo de Comprobante"
+			description="Tipo de Comprobante" class="inputbox"
+			size="1" default="1"
+		>
+			<option value="1">FACTURAS A</option>
+			<option value="2">NOTAS DE DEBITO A</option>
+			<option value="3">NOTAS DE CREDITO A</option>
+			<option value="4">RECIBOS A</option>
+			<option value="5">NOTAS DE VENTA AL CONTADO A</option>
+			<option value="6">FACTURAS B</option>
+			<option value="7">NOTAS DE DEBITO B</option>
+			<option value="8">NOTAS DE CREDITO B</option>
+			<option value="9">RECIBOS B</option>
+			<option value="10">NOTAS DE VENTA AL CONTADO B</option>
+			<option value="11">FACTURAS C</option>
+			<option value="12">NOTAS DE DEBITO C</option>
+			<option value="13">NOTAS DE CREDITO C</option>
+			<option value="15">RECIBOS C</option>
+			<option value="16">NOTAS DE VENTA AL CONTADO C</option>	
+		</field>
+		<field 
+			name="CbteFch" 
+			type="calendar" 
+			label="Fecha del comprobante"
+			description="Fecha del comprobante"
+			translateformat="true"
+			showtime="false"
+			size="22"
+			filter="user_utc"
+			format="dd/mm/aaaa"
+		/>
+		<field name="Concepto" type="list" label="Conceptos a incluir"
+			description="Conceptos a incluir" class="inputbox"
+			filter="intval" size="1" default="2"
+		>
+			<option value="1">Productos</option>
+            <option value="2">Servicios</option>
+            <option value="3">Productos y Servicios</option>
+            <option value="4">Otro</option>
+		</field>
+		<field 
+			name="FchServDesde" 
+			type="calendar" 
+			label="Fecha Servicio Desde"
+			description="FchServDesde"
+			translateformat="true"
+			showtime="false"
+			size="22"
+			filter="user_utc"
+			format="dd/mm/aaaa"
+		/>
+		<field 
+			name="FchServHasta" 
+			type="calendar" 
+			label="Fecha Servicio Hasta"
+			description="FchServHasta"
+			translateformat="true"
+			showtime="false"
+			size="22"
+			filter="user_utc"
+			format="dd/mm/aaaa"
+		/>
+		<field 
+			name="FchVtoPago" 
+			type="calendar" 
+			label="Fecha Vto Pago"
+			description="FchVtoPago"
+			translateformat="true"
+			showtime="false"
+			size="22"
+			filter="user_utc"
+			format="dd/mm/aaaa"
+		/>			
+		<field name="deDocTipo" 
+			type="text"
+			label="Doc Tipo"
+			description="DocTipo" 
+			size="10" 
+			default="0"
+			readonly="true"
+			class="readonly"
+		/>
+		<field name="deDocNro" 
+			type="text"
+			label="Doc Nro"
+			description="DocNro" 
+			size="10" 
+			default="0"
+			readonly="true"
+			class="readonly"
+		/>
+		<field name="CbteDesde" 
+			type="text"
+			label="CbteDesde"
+			description="CbteDesde" 
+			size="10" 
+			default="0"
+			readonly="true"
+			class="readonly"
+		/>
+		<field name="CbteHasta" 
+			type="text"
+			label="CbteHasta"
+			description="CbteHasta" 
+			size="10" 
+			default="0"
+			readonly="true"
+			class="readonly"
+		/>
+		<field
+			name="recurrent"
+			type="radio"
+			label="Recurrente"
+			description="Recurrente"
+			class="btn-group btn-group-yesno"
+			default="0"
+			>
+			<option value="1">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+	</fieldset>	
+</form>

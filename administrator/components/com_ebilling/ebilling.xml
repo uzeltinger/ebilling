@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- $Id: ebilling.xml 1 2014-02-20 este8an $ -->
+<extension type="component" version="3.0" method="upgrade">
+	<name>com_ebilling</name>	
+	<creationDate>2018-07-01</creationDate>
+	<author>este8an</author>
+	<authorEmail>fabiouz@gmail.com</authorEmail>
+	<authorUrl>http://www.yexey.com</authorUrl>
+	<copyright>Copyright Info</copyright>
+	<license>GNU General Public License version 2 or later; see	LICENSE.txt</license>	
+	<version>1.5.0</version>
+	<description>Component for Real Estate</description>
+	<scriptfile>com_ebilling.script.php</scriptfile>
+	<updateservers>    
+    	<server type="extension" priority="1" name="E-billing Component Updates">http://www.diportal.com.ar/updates/ebilling/com_ebilling.xml</server>
+	</updateservers>  
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.ebilling.sql</file>
+		</sql>
+	</install>  
+	<uninstall>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.ebilling.sql</file>
+		</sql>
+	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>		
+	<files folder="site">		
+	<filename>index.html</filename>
+	</files>
+	<media destination="com_ebilling" folder="media">
+		<folder>pdfs</folder>
+		<folder>css</folder>
+		<folder>js</folder>
+	</media>				
+	<administration>		
+		<menu>COM_EBILLING_MENU</menu>					
+		<files folder="admin">	
+			<filename>index.html</filename>	
+			<filename>controller.php</filename>
+			<filename>ebilling.php</filename>
+			<filename>config.xml</filename>
+			<folder>afip</folder>
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin/languages">      
+			<language tag="en-GB">en-GB.com_ebilling.ini</language>
+			<language tag="es-ES">es-ES.com_ebilling.ini</language>			
+			<language tag="en-GB">en-GB.com_ebilling.sys.ini</language>
+			<language tag="es-ES">es-ES.com_ebilling.sys.ini</language>			
+		</languages>
+		<files folder="admin/sql">
+			<filename>install.ebilling.sql</filename>
+			<filename>uninstall.ebilling.sql</filename>
+		</files>
+	</administration>
+</extension>

@@ -1,0 +1,1 @@
+ALTER TABLE `#__ebilling_invoices` ADD `state` INT(2) NOT NULL AFTER `recurrent`;

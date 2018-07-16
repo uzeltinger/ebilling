@@ -1,0 +1,63 @@
+<?php
+/**
+ * @package	com_ebilling
+ * @copyright	Copyright (C) 2010 Fabio Esteban Uzeltinger, Inc. All rights reserved.
+ * @license		GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+// No direct access
+defined('_JEXEC') or die;
+
+class EbillingViewProfile extends JViewLegacy
+{
+	protected $form;
+	protected $item;
+	protected $state;
+
+	public function display($tpl = null)
+	{
+
+		$this->form		= $this->get('Form');
+		$this->item		= $this->get('Item');
+		$this->state	= $this->get('State');		
+		
+		$canDo	= EbillingHelper::getActions();
+		if ($canDo->get('core.admin')) 
+		{
+			$this->iAmAdmin=true;
+			}else{
+			$this->iAmAdmin=false;		
+		}				
+
+		if (count($errors = $this->get('Errors'))) {
+			JError::raiseError(500, implode("\n", $errors));
+			return false;
+		}
+
+		$this->addToolbar();		
+		parent::display($tpl);
+	}	
+	
+	protected function addToolbar()
+	{
+		JRequest::setVar('hidemainmenu', true);
+		$canDo	= EbillingHelper::getActions();
+
+		$user		= JFactory::getUser();
+		$isNew		= ($this->item->id == 0);
+		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $user->get('id'));
+		
+		JToolBarHelper::title($isNew ? JText::_('COM_ebilling_MANAGER_PROFILE_NEW') : JText::_('COM_ebilling_MANAGER_PROFILE_EDIT').' : '.$this->item->name, 'profiles.png');
+		
+		JToolBarHelper::apply('profile.apply', 'JTOOLBAR_APPLY');
+			JToolBarHelper::save('profile.save', 'JTOOLBAR_SAVE');
+			if ($canDo->get('core.admin')) {
+			JToolBarHelper::addNew('profile.save2new', 'JTOOLBAR_SAVE_AND_NEW');
+			}
+			if (empty($this->item->id))  {
+			JToolBarHelper::cancel('profile.cancel', 'JTOOLBAR_CANCEL');
+		} else {
+			JToolBarHelper::cancel('profile.cancel', 'JTOOLBAR_CLOSE');
+		}
+	}
+}

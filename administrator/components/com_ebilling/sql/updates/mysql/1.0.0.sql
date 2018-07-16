@@ -1,0 +1,1 @@
+ALTER TABLE `#__ebilling_invoices` ADD `recurrent` TINYINT(1) NOT NULL AFTER `profile_id`;

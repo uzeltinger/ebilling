@@ -1,3 +1,13 @@
 /*
 !.gitignore
+!/tmp/
+!/administrator
+/administrator/*
+!/administrator/components
+/administrator/components/*
 !/administrator/components/com_ebilling
+!/administrator/languajes
+/administrator/languajes/*
+!/administrator/languajes/es-ES
+/administrator/languajes/es-ES/*
+!/administrator/languajes/es-ES/es-ES.com_ebilling.ini

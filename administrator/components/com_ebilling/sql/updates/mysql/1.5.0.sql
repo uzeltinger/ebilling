@@ -1,0 +1,1 @@
+ALTER TABLE `#__ebilling_invoices_items` ADD `descuentoPorcentaje` INT(3) NOT NULL AFTER `precio`;
